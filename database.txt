@@ -1,0 +1,5 @@
+CREATE DATABASE db_restfulapi;
+
+USE db_restfulapi;
+
+CREATE TABLE Users(id INT(11) AUTO_INCREMENT PRIMARY KEY, name VARCHAR(100), email VARCHAR(100), password VARCHAR(150));
