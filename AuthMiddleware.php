@@ -17,7 +17,7 @@ class Auth extends JwtHandler
 
     public function isValid()
     {
-        if(array_key_exists('Authorization', $this->headers) && preg_match('/Bearer\s(S+)/*', $this->headers['Authorization'], $matches)) {
+        if(array_key_exists('Authorization', $this->headers) && preg_match('/Bearer\s(\S+)/', $this->headers['Authorization'], $matches)) {
             $data = $this->jwtDecodeData($matches[1]);
             if(isset($data['data']->user_id) && $user = $this->fetchUser($data['data']->user_id)) {
                 return [
@@ -41,7 +41,7 @@ class Auth extends JwtHandler
     protected function fetchUser($user_id)
     {
         try {
-            $fetch_user_by_id = "SELECT name, email FROM Users WHERE id=: id";
+            $fetch_user_by_id = "SELECT name, email FROM Users WHERE id = :id";
             $query_user = $this->db->prepare($fetch_user_by_id);
             $query_user->bindValue(':id', $user_id, PDO::PARAM_INT);
             $query_user->execute();

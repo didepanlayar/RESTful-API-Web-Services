@@ -48,7 +48,7 @@ class JwtHandler
         try {
             $decode = JWT::decode($jwt_token, $this->jwt_secret, array('HS256'));
             return [
-                'data' => $decode->$data
+                'data' => $decode->data
             ];
         }
         catch(Exception $e) {
