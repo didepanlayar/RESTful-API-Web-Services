@@ -3,3 +3,5 @@ CREATE DATABASE db_restfulapi;
 USE db_restfulapi;
 
 CREATE TABLE Users(id INT(11) AUTO_INCREMENT PRIMARY KEY, name VARCHAR(100), email VARCHAR(100), password VARCHAR(150));
+
+CREATE TABLE Items (id INT(11) AUTO_INCREMENT PRIMARY KEY, name VARCHAR(100), description VARCHAR(100), price INT(10), category_id INT(11), created datetime, modified timestamp NOT NULL DEFAULT current_timestamp());
