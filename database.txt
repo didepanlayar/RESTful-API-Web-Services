@@ -5,3 +5,15 @@ USE db_restfulapi;
 CREATE TABLE Users(id INT(11) AUTO_INCREMENT PRIMARY KEY, name VARCHAR(100), email VARCHAR(100), password VARCHAR(150));
 
 CREATE TABLE Items (id INT(11) AUTO_INCREMENT PRIMARY KEY, name VARCHAR(100), description VARCHAR(100), price INT(10), category_id INT(11), created datetime, modified timestamp NOT NULL DEFAULT current_timestamp());
+
+INSERT INTO Items (id, name, description, price, category_id, created, modified) VALUES
+(1, 'Samsung Washing Machine', 'Best machine.', 35000, 6, '2022-05-02 15:11:07', '2022-05-31 12:12:26'),
+(3, 'Galaxy S4', 'Galaxy S4 Model is Awesome.', 400, 3, '2022-06-01 01:12:26', '2022-05-31 12:12:26'),
+(5, 'Dell Laptop', 'My business partner.', 319, 2, '2022-06-01 01:13:45', '2022-05-30 21:13:39'),
+(6, 'Nokia Tab 10.1', 'Good tablet.', 239, 2, '2022-06-01 01:14:13', '2022-05-30 21:14:08'),
+(7, 'Apple Watch', 'My sports watch.', 299, 1, '2022-06-01 01:18:36', '2022-05-30 21:18:31'),
+(8, 'Smart Watch', 'The coolest smart watch.', 300, 2, '2022-06-06 17:10:01', '2022-06-05 13:09:51'),
+(9, 'Rolex Watch', 'Luxury watch.', 15000, 1, '2022-01-11 15:46:02', '2022-01-11 10:46:02'),
+(10, 'HP Laptop', 'Pavilion', 319, 2, '2022-06-01 01:13:45', '2022-05-30 21:13:39'),
+(11, 'LG Washing Machine', 'Best machine.', 35000, 6, '2022-05-02 15:11:54', '2022-05-02 12:25:42'),
+(12, 'Yeti MIC', 'Best mic', 15000, 4, '2022-05-02 14:29:20', '2022-05-02 12:29:20');
