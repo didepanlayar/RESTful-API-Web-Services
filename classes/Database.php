@@ -18,6 +18,15 @@ class Database {
             exit;
         }
     }
+
+    public function getConnection() {		
+		$conn = new mysqli($this->db_host, $this->db_username, $this->db_password, $this->db_name);
+		if($conn->connect_error) {
+			die("Error failed to connect to MySQL: " . $conn->connect_error);
+		} else {
+			return $conn;
+		}
+    }
 }
 
 ?>
