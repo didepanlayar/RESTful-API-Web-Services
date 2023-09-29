@@ -33,6 +33,18 @@ class Items {
 
 		return false;
 	}
+
+    function read() {	
+		if($this->id) {
+			$query_database = $this->conn->prepare("SELECT * FROM $this->itemsTable WHERE id = ?");
+			$query_database->bind_param("i", $this->id);					
+		} else {
+			$query_database = $this->conn->prepare("SELECT * FROM $this->itemsTable");		
+		}		
+		$query_database->execute();			
+		$result = $query_database->get_result();		
+		return $result;	
+	}
 }
 
 ?>
