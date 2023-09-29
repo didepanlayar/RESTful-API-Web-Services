@@ -63,6 +63,20 @@ class Items {
 		}
 		return false;
 	}
+
+    function delete() {
+		$query_database = $this->conn->prepare("DELETE FROM $this->itemsTable WHERE id = ?");
+
+		$this->id = htmlspecialchars(strip_tags($this->id));
+
+		$query_database->bind_param("i", $this->id);
+
+		if($query_database->execute()) {
+			return true;
+		}
+		return false;
+    }
+
 }
 
 ?>
