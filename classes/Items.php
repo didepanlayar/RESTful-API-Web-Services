@@ -45,6 +45,24 @@ class Items {
 		$result = $query_database->get_result();		
 		return $result;	
 	}
+
+    function update() {
+		$query_database = $this->conn->prepare("UPDATE $this->itemsTable SET name= ?, description = ?, price = ?, category_id = ?, modified = ? WHERE id = ?");
+
+		$this->id = htmlspecialchars(strip_tags($this->id));
+		$this->name = htmlspecialchars(strip_tags($this->name));
+		$this->description = htmlspecialchars(strip_tags($this->description));
+		$this->price = htmlspecialchars(strip_tags($this->price));
+		$this->category_id = htmlspecialchars(strip_tags($this->category_id));
+		$this->modified = htmlspecialchars(strip_tags($this->modified));
+
+		$query_database->bind_param("ssiisi", $this->name, $this->description, $this->price, $this->category_id, $this->modified, $this->id);
+
+		if($query_database->execute()) {
+			return true;
+		}
+		return false;
+	}
 }
 
 ?>
